@@ -13,10 +13,10 @@ class ObjectCSVTests extends FunSuite {
     val file = new File(fileName)
     if (file.exists())
       file.delete()
-    val person1 = new Person("Doron,y",30,5.5)
-    val person2 = new Person("David",18,6.5)
+    val person1 = new Person("Doron,y",10,5.5)
+    val person2 = new Person("David",20,6.5)
     writeCSV(IndexedSeq(person1,person2), fileName)
     val peopleFromCSV = readCSV[Person](fileName)
-    assert(peopleFromCSV === IndexedSeq(Person("Doron,y",30,5.5),Person("David",18,6.5)))
+    assert(peopleFromCSV === IndexedSeq(Person("Doron,y",10,5.5),Person("David",20,6.5)))
   }
 }

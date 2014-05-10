@@ -37,7 +37,7 @@ pomExtra := (
     </licenses>
     <scm>
       <url>git@github.com:dorony/object-csv.git</url>
-      <connection>scm:git:git@github.com:t-pleasure/mighty-csv.git</connection>
+      <connection>scm:git:git@github.com:dorony/object-csv.gitt</connection>
     </scm>
     <developers>
       <developer>
