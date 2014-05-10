@@ -1,4 +1,4 @@
-package com.ginger.csv
+package com.gingersoftware.csv
 import scala.reflect.runtime.{universe => ru}
 
 /**

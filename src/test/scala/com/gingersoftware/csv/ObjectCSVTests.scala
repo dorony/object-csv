@@ -1,7 +1,7 @@
-package com.ginger.csv
+package com.gingersoftware.csv
 
 import org.scalatest.FunSuite
-import com.ginger.csv.ObjectCSV._
+import com.gingersoftware.csv.ObjectCSV._
 import java.io.File
 
 /**
