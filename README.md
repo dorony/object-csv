@@ -1,8 +1,12 @@
 object-csv
 ==========
 
-Strongly typed CSV helper for Scala.
-
+Strongly typed CSV helper for Scala, based on the [scala-csv project](https://github.com/tototoshi/scala-csv).
+Requires scala 2.11.
+To use, add to your sbt.build:
+```scala
+libraryDependencies += "com.gingersoftware" % "object-csv_2.11" % "0.1"
+```
 
 Let’s say you defined this case class:
 ```scala
@@ -19,12 +23,12 @@ writeCSV(IndexedSeq(person1,person2), fileName)
 ```
 
 This will generate the following CSV file:
- 
-\#Name,Age,Salary,IsNice
 
+``` 
+#Name,Age,Salary,IsNice
 "Doron,y",10,5.5,false 
-
 David,20,6.5,false
+```
  
 In a similar manner, you can also read this CSV file as a collection of Person:
 
