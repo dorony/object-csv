@@ -20,8 +20,10 @@ writeCSV(IndexedSeq(person1,person2), fileName)
 
 This will generate the following CSV file:
  
-#Name,Age,Salary,IsNice 
+\#Name,Age,Salary,IsNice
+
 "Doron,y",10,5.5,false 
+
 David,20,6.5,false
  
 In a similar manner, you can also read this CSV file as a collection of Person:
