@@ -39,7 +39,7 @@ val peopleFromCSV = readCSV[Person](fileName)
 assert(peopleFromCSV === IndexedSeq(Person("Doron,y",10,5.5),Person("David",20,6.5)))
 ```
 
-The order of the columns in the CSV file doesn't matter, we use the header to match each value to the correct constructor argument.
+The order of the columns in the CSV file doesn't matter, we use the header to match each value to the correct constructor argument. This allows your files to be more flexible: add columns or change their order, and your code won’t break.
 
 
 #Limitations
