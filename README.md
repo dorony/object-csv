@@ -3,7 +3,7 @@ object-csv
 
 Strongly typed CSV helper for Scala, based on the [scala-csv project](https://github.com/tototoshi/scala-csv).
 Requires scala 2.11.
-To use, add to your sbt.build:
+To use, add to your build.sbt:
 ```scala
 libraryDependencies += "com.gingersoftware" % "object-csv_2.11" % "0.1"
 ```
