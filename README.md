@@ -1,6 +1,8 @@
 object-csv
 ==========
 
+#Usage
+
 Strongly typed CSV helper for Scala, based on the [scala-csv project](https://github.com/tototoshi/scala-csv).
 Requires scala 2.11.
 To use, add to your build.sbt:
@@ -37,7 +39,10 @@ val peopleFromCSV = readCSV[Person](fileName)
 assert(peopleFromCSV === IndexedSeq(Person("Doron,y",10,5.5),Person("David",20,6.5)))
 ```
 
-Nice and simple, right? It serves our needs nicely, but it comes with some caveates:
+The order of the columns in the CSV file doesn't matter, we use the header to match each value to the correct constructor argument.
+
+
+#Limitations
 
 1) It only works with Scala 2.11, as it uses scala.reflect which wasn’t really stable on 2.10. So make sure you have set scalaVersion := "2.11.0" in your build.sbt.
 
