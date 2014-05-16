@@ -44,7 +44,7 @@ The order of the columns in the CSV file doesn't matter, we use the header to ma
 
 #Limitations
 
-1) It only works with Scala 2.11, as it uses scala.reflect which wasn’t really stable on 2.10. So make sure you have set scalaVersion := "2.11.0" in your build.sbt.
+1) It only works with Scala 2.11, as it uses scala.reflect which wasn’t really stable on 2.10. So make sure you have set ```scalaVersion := "2.11.0"``` in your build.sbt.
 
 2) It only works with case classes, as all the reflection stuff is based on using your case class primary constructor.
 
