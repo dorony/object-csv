@@ -26,6 +26,8 @@ publishArtifact in Test := false
 
 pomIncludeRepository := { _ => false }
 
+organization := "com.gingersoftware"
+
 pomExtra := (
   <url>https://github.com/dorony/object-csv</url>
     <licenses>
@@ -37,12 +39,12 @@ pomExtra := (
     </licenses>
     <scm>
       <url>git@github.com:dorony/object-csv.git</url>
-      <connection>scm:git:git@github.com:dorony/object-csv.git</connection>
+      <connection>scm:git@github.com:dorony/object-csv.git</connection>
     </scm>
     <developers>
       <developer>
         <id>dorony</id>
         <name>Doron Yaacoby</name>
-        <url>http://github.com/dorony</url>
+        <url>http://blogs.microsoft.co.il/blogs/dorony</url>
       </developer>
     </developers>)
