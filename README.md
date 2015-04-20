@@ -54,7 +54,7 @@ The order of the columns in the CSV file doesn't matter, we use the header to ma
 
 5) The API currently doesn’t expose ways to control the type of separator used in the CSV file, but it is very easy to add (the scala-csv project does support it).
 
-6) We didn’t test it for speed, reading is likely to be slow as it uses reflection heavily.
+6) We didn’t test it for speed, reading is likely to be slow as it uses reflection heavily.  
 
 # License
 [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0)
