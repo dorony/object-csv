@@ -52,9 +52,7 @@ The order of the columns in the CSV file doesn't matter, we use the header to ma
 
 3) For reading, we only currently support the following data types: Int, Double, Boolean and String. We’ll probably add more as we need them. Writing works with everything, as we just .toString it all.
 
-4) The API currently doesn’t expose ways to control the type of separator used in the CSV file, but it is very easy to add (the scala-csv project does support it).
-
-5) We didn’t test it for speed, reading is likely to be slow as it uses reflection heavily.  
+4) We didn’t test it for speed, reading is likely to be slow as it uses reflection heavily.  
 
 # License
 [Apache 2.0](http://www.apache.org/licenses/LICENSE-2.0)
