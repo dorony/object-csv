@@ -30,6 +30,7 @@ class ObjectConverter {
   private def parseValue(paramName: String, paramType: ru.Type, propertyToValue : Map[String,String]) : Any = {
     propertyToValue.get(paramName.toLowerCase) match {
       case None => getDefault(paramType)
+      case Some(v) if v.isEmpty => getDefault(paramType)
       case Some(v) => convert(v, paramType)
     }
    }
@@ -37,8 +38,16 @@ class ObjectConverter {
   private def convert(v: String, t: ru.Type): Any = {
     t match {
       case _ if t =:= ru.typeOf[Int] => v.toInt
+      case _ if t =:= ru.typeOf[Long] => v.toLong
+      case _ if t =:= ru.typeOf[BigDecimal] => BigDecimal(v)
       case _ if t =:= ru.typeOf[Double] => v.toDouble
       case _ if t =:= ru.typeOf[Boolean] => v.toBoolean
+      case _ if t =:= ru.typeOf[Option[Int]] => Some(v.toInt)
+      case _ if t =:= ru.typeOf[Option[Double]] => Some(v.toDouble)
+      case _ if t =:= ru.typeOf[Option[Boolean]] => Some(v.toBoolean)
+      case _ if t =:= ru.typeOf[Option[Long]] => Some(v.toLong)
+      case _ if t =:= ru.typeOf[Option[BigDecimal]] => Some(BigDecimal(v))
+      case _ if t =:= ru.typeOf[Option[String]] => Some(v)
       case _ => v
     }
   }
@@ -48,6 +57,10 @@ class ObjectConverter {
       case _ if paramType =:= ru.typeOf[Int] => 0
       case _ if paramType =:= ru.typeOf[Double] => 0
       case _ if paramType =:= ru.typeOf[Boolean] => false
+      case _ if paramType =:= ru.typeOf[Option[Int]] => None
+      case _ if paramType =:= ru.typeOf[Option[Double]] => None
+      case _ if paramType =:= ru.typeOf[Option[Boolean]] => None
+      case _ if paramType =:= ru.typeOf[Option[String]] => None
       case _ => null
     }
   }
@@ -61,7 +74,12 @@ class ObjectConverter {
     val propToValue = getCaseClassParams(obj)
     header.map(h => {
       val value = propToValue.get(h)
-      if (value.isEmpty || value.get == null) "" else value.get.toString
+      if (value.isEmpty || value.get == null) ""
+      else value.get match {
+        case Some(v) => v.toString
+        case None => ""
+        case v => v.toString
+      }
     })
   }
   def getHeader[T: ru.TypeTag]() : IndexedSeq[String] = {
