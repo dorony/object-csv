@@ -1,6 +1,10 @@
 object-csv
 ==========
 #Updates
+- Added support for optional values, Long, BigDecimal.
+- Convert empty csv values to default type values
+- Scala version updated to 2.11.7
+
 Thanks to a contribution by [aandeers](https://github.com/aandeers) version 0.2 is now available, which allows you to customize the csv delimiters, by passing a Config() object to ObjectCSV. Note that you now have to create an instance of ObjectCSV, as shown below.
 
 #Usage
