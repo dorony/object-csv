@@ -1,6 +1,6 @@
 name := "object-csv"
 
-version := "0.1"
+version := "0.3"
 
 scalaVersion := "2.11.7"
 
@@ -12,7 +12,7 @@ libraryDependencies += "com.github.tototoshi" % "scala-csv_2.10" % "1.0.0"
 
 libraryDependencies += "org.scala-lang" % "scala-reflect" % scalaVersion.value
 
-libraryDependencies += "org.scala-lang" % "scala-parser-combinators" % "2.11.0-M4"
+libraryDependencies += "org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.4"
 
 publishTo <<= version { (v: String) =>
   val nexus = "https://oss.sonatype.org/"
