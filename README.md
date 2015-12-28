@@ -13,7 +13,7 @@ Strongly typed CSV helper for Scala, based on the [scala-csv project](https://gi
 Requires scala 2.11.
 To use, add to your build.sbt:
 ```scala
-libraryDependencies += "com.gingersoftware" % "object-csv_2.11" % "0.2"
+libraryDependencies += "com.gingersoftware" % "object-csv_2.11" % "0.3"
 ```
 
 Let’s say you defined this case class:
