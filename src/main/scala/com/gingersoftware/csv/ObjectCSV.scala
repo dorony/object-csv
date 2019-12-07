@@ -15,22 +15,21 @@ case class Config(header: String = "#",
                   quoting: Quoting = defaultCSVFormat.quoting) extends CSVFormat
 
 object ObjectCSV {
-  def apply(config: Config = new Config()) = new ObjectCSV(config)
+  def apply(config: Config = Config()) = new ObjectCSV(config)
 }
 
 /**
- * Created by dorony on 01/05/14.
- */
+  * Created by dorony on 01/05/14.
+  */
 protected class ObjectCSV(config: Config) {
   def readCSV[T: ru.TypeTag](inputPath: String): IndexedSeq[T] = {
     val objectConverter = new ObjectConverter
-    val csvReader = CSVReader.open(inputPath)(config)
-    val data = csvReader.all()
+    val data = CSVReader.open(inputPath)(config).all()
     val header = data.head
     if (!header.head.startsWith(config.header)) {
-      throw new Exception("Expected a commented out header. Found: " + header)
+      throw new Exception(s"Expected a ${config.header} at the start of the header. Found: " + header)
     }
-    val headerWithoutComments = Array(header.head.substring(1)) ++ header.tail
+    val headerWithoutComments = Array(header.head.replaceFirst(config.header, "")) ++ header.tail
     val objects = data.view.tail.map(row => objectConverter.toObject[T](row, headerWithoutComments))
     objects.toVector
   }

@@ -6,20 +6,19 @@ scalaVersion := "2.11.7"
 
 publishMavenStyle := true
 
-libraryDependencies += "org.scalatest" % "scalatest_2.11" % "2.1.5" % "test"
-
-libraryDependencies += "com.github.tototoshi" % "scala-csv_2.10" % "1.0.0"
-
-libraryDependencies += "org.scala-lang" % "scala-reflect" % scalaVersion.value
-
-libraryDependencies += "org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.4"
+libraryDependencies ++= Seq(
+  "org.scalatest" %% "scalatest" % "3.0.1" % "test",
+  "com.github.tototoshi" %% "scala-csv" % "1.3.4",
+  "org.scala-lang" % "scala-reflect" % scalaVersion.value,
+  "org.scala-lang.modules" %% "scala-parser-combinators" % "1.0.5"
+)
 
 publishTo <<= version { (v: String) =>
   val nexus = "https://oss.sonatype.org/"
   if (v.trim.endsWith("SNAPSHOT"))
     Some("snapshots" at nexus + "content/repositories/snapshots")
   else
-    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+    Some("releases" at nexus + "service/local/staging/deploy/maven2")
 }
 
 publishArtifact in Test := false
